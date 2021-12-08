@@ -3,3 +3,4 @@ node_modules
 # IDEs
 .vscode/
 .idea/
+/rust/target

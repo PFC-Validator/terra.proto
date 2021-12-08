@@ -1,3 +1,18 @@
 [submodule "terrad"]
 	path = terrad
 	url = https://github.com/terra-money/core
+[submodule "rust/googleapis"]
+	path = rust/googleapis
+	url = git@github.com:googleapis/googleapis.git
+[submodule "cosmossdk"]
+	path = rust/cosmos-sdk
+	url = git@github.com:cosmos/cosmos-sdk.git
+[submodule "rust/inc/cosmos_proto"]
+	path = rust/inc/cosmos_proto
+	url = git@github.com:cosmos/cosmos-proto.git
+[submodule "tendermint"]
+	path = rust/tendermint
+	url = git@github.com:tendermint/tendermint.git
+[submodule "terrad_rust"]
+	path = rust/terrad
+	url = git@github.com:terra-money/core.git
