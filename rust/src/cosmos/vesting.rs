@@ -3,4 +3,5 @@
 pub mod tx;
 pub mod vesting;
 
+pub use crate::cosmos::auth;
 pub use crate::cosmos::base::coin;

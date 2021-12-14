@@ -22,6 +22,7 @@
 /// Generated files are compatible only with the same version
 /// of protobuf runtime.
 // const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_2_25_2;
+use crate::cosmos::base::abci::{GasInfo, TxResponse};
 
 #[derive(PartialEq,Clone,Default)]
 pub struct GetTxsEventRequest {
@@ -273,7 +274,7 @@ impl ::protobuf::reflect::ProtobufValue for GetTxsEventRequest {
 pub struct GetTxsEventResponse {
     // message fields
     pub txs: ::protobuf::RepeatedField<super::tx::Tx>,
-    pub tx_responses: ::protobuf::RepeatedField<super::abci::TxResponse>,
+    pub tx_responses: ::protobuf::RepeatedField<TxResponse>,
     pub pagination: ::protobuf::SingularPtrField<super::pagination::PageResponse>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -319,7 +320,7 @@ impl GetTxsEventResponse {
     // repeated .cosmos.base.abci.v1beta1.TxResponse tx_responses = 2;
 
 
-    pub fn get_tx_responses(&self) -> &[super::abci::TxResponse] {
+    pub fn get_tx_responses(&self) -> &[TxResponse] {
         &self.tx_responses
     }
     pub fn clear_tx_responses(&mut self) {
@@ -327,17 +328,17 @@ impl GetTxsEventResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_tx_responses(&mut self, v: ::protobuf::RepeatedField<super::abci::TxResponse>) {
+    pub fn set_tx_responses(&mut self, v: ::protobuf::RepeatedField<TxResponse>) {
         self.tx_responses = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_tx_responses(&mut self) -> &mut ::protobuf::RepeatedField<super::abci::TxResponse> {
+    pub fn mut_tx_responses(&mut self) -> &mut ::protobuf::RepeatedField<TxResponse> {
         &mut self.tx_responses
     }
 
     // Take field
-    pub fn take_tx_responses(&mut self) -> ::protobuf::RepeatedField<super::abci::TxResponse> {
+    pub fn take_tx_responses(&mut self) -> ::protobuf::RepeatedField<TxResponse> {
         ::std::mem::replace(&mut self.tx_responses, ::protobuf::RepeatedField::new())
     }
 
@@ -496,7 +497,7 @@ impl ::protobuf::Message for GetTxsEventResponse {
                 |m: &GetTxsEventResponse| { &m.txs },
                 |m: &mut GetTxsEventResponse| { &mut m.txs },
             ));
-            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::abci::TxResponse>>(
+            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<TxResponse>>(
                 "tx_responses",
                 |m: &GetTxsEventResponse| { &m.tx_responses },
                 |m: &mut GetTxsEventResponse| { &mut m.tx_responses },
@@ -734,7 +735,7 @@ impl ::protobuf::reflect::ProtobufValue for BroadcastTxRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct BroadcastTxResponse {
     // message fields
-    pub tx_response: ::protobuf::SingularPtrField<super::abci::TxResponse>,
+    pub tx_response: ::protobuf::SingularPtrField<TxResponse>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -754,8 +755,8 @@ impl BroadcastTxResponse {
     // .cosmos.base.abci.v1beta1.TxResponse tx_response = 1;
 
 
-    pub fn get_tx_response(&self) -> &super::abci::TxResponse {
-        self.tx_response.as_ref().unwrap_or_else(|| <super::abci::TxResponse as ::protobuf::Message>::default_instance())
+    pub fn get_tx_response(&self) -> &TxResponse {
+        self.tx_response.as_ref().unwrap_or_else(|| <TxResponse as ::protobuf::Message>::default_instance())
     }
     pub fn clear_tx_response(&mut self) {
         self.tx_response.clear();
@@ -766,13 +767,13 @@ impl BroadcastTxResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_tx_response(&mut self, v: super::abci::TxResponse) {
+    pub fn set_tx_response(&mut self, v: TxResponse) {
         self.tx_response = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_tx_response(&mut self) -> &mut super::abci::TxResponse {
+    pub fn mut_tx_response(&mut self) -> &mut TxResponse {
         if self.tx_response.is_none() {
             self.tx_response.set_default();
         }
@@ -780,8 +781,8 @@ impl BroadcastTxResponse {
     }
 
     // Take field
-    pub fn take_tx_response(&mut self) -> super::abci::TxResponse {
-        self.tx_response.take().unwrap_or_else(|| super::abci::TxResponse::new())
+    pub fn take_tx_response(&mut self) -> TxResponse {
+        self.tx_response.take().unwrap_or_else(|| TxResponse::new())
     }
 }
 
@@ -867,7 +868,7 @@ impl ::protobuf::Message for BroadcastTxResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::abci::TxResponse>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<TxResponse>>(
                 "tx_response",
                 |m: &BroadcastTxResponse| { &m.tx_response },
                 |m: &mut BroadcastTxResponse| { &mut m.tx_response },
@@ -1124,8 +1125,8 @@ impl ::protobuf::reflect::ProtobufValue for SimulateRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct SimulateResponse {
     // message fields
-    pub gas_info: ::protobuf::SingularPtrField<super::abci::GasInfo>,
-    pub result: ::protobuf::SingularPtrField<super::abci::Result>,
+    pub gas_info: ::protobuf::SingularPtrField<GasInfo>,
+    pub result: ::protobuf::SingularPtrField<crate::cosmos::base::abci::Result>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -1145,8 +1146,8 @@ impl SimulateResponse {
     // .cosmos.base.abci.v1beta1.GasInfo gas_info = 1;
 
 
-    pub fn get_gas_info(&self) -> &super::abci::GasInfo {
-        self.gas_info.as_ref().unwrap_or_else(|| <super::abci::GasInfo as ::protobuf::Message>::default_instance())
+    pub fn get_gas_info(&self) -> &GasInfo {
+        self.gas_info.as_ref().unwrap_or_else(|| <GasInfo as ::protobuf::Message>::default_instance())
     }
     pub fn clear_gas_info(&mut self) {
         self.gas_info.clear();
@@ -1157,13 +1158,13 @@ impl SimulateResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_gas_info(&mut self, v: super::abci::GasInfo) {
+    pub fn set_gas_info(&mut self, v: GasInfo) {
         self.gas_info = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_gas_info(&mut self) -> &mut super::abci::GasInfo {
+    pub fn mut_gas_info(&mut self) -> &mut GasInfo {
         if self.gas_info.is_none() {
             self.gas_info.set_default();
         }
@@ -1171,15 +1172,15 @@ impl SimulateResponse {
     }
 
     // Take field
-    pub fn take_gas_info(&mut self) -> super::abci::GasInfo {
-        self.gas_info.take().unwrap_or_else(|| super::abci::GasInfo::new())
+    pub fn take_gas_info(&mut self) -> GasInfo {
+        self.gas_info.take().unwrap_or_else(|| GasInfo::new())
     }
 
     // .cosmos.base.abci.v1beta1.Result result = 2;
 
 
-    pub fn get_result(&self) -> &super::abci::Result {
-        self.result.as_ref().unwrap_or_else(|| <super::abci::Result as ::protobuf::Message>::default_instance())
+    pub fn get_result(&self) -> &crate::cosmos::base::abci::Result {
+        self.result.as_ref().unwrap_or_else(|| <crate::cosmos::base::abci::Result as ::protobuf::Message>::default_instance())
     }
     pub fn clear_result(&mut self) {
         self.result.clear();
@@ -1190,13 +1191,13 @@ impl SimulateResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_result(&mut self, v: super::abci::Result) {
+    pub fn set_result(&mut self, v: crate::cosmos::base::abci::Result) {
         self.result = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_result(&mut self) -> &mut super::abci::Result {
+    pub fn mut_result(&mut self) -> &mut crate::cosmos::base::abci::Result {
         if self.result.is_none() {
             self.result.set_default();
         }
@@ -1204,8 +1205,8 @@ impl SimulateResponse {
     }
 
     // Take field
-    pub fn take_result(&mut self) -> super::abci::Result {
-        self.result.take().unwrap_or_else(|| super::abci::Result::new())
+    pub fn take_result(&mut self) -> crate::cosmos::base::abci::Result {
+        self.result.take().unwrap_or_else(|| crate::cosmos::base::abci::Result::new())
     }
 }
 
@@ -1308,12 +1309,12 @@ impl ::protobuf::Message for SimulateResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::abci::GasInfo>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<GasInfo>>(
                 "gas_info",
                 |m: &SimulateResponse| { &m.gas_info },
                 |m: &mut SimulateResponse| { &mut m.gas_info },
             ));
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::abci::Result>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<crate::cosmos::base::abci::Result>>(
                 "result",
                 |m: &SimulateResponse| { &m.result },
                 |m: &mut SimulateResponse| { &mut m.result },
@@ -1515,7 +1516,7 @@ impl ::protobuf::reflect::ProtobufValue for GetTxRequest {
 pub struct GetTxResponse {
     // message fields
     pub tx: ::protobuf::SingularPtrField<super::tx::Tx>,
-    pub tx_response: ::protobuf::SingularPtrField<super::abci::TxResponse>,
+    pub tx_response: ::protobuf::SingularPtrField<TxResponse>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -1568,8 +1569,8 @@ impl GetTxResponse {
     // .cosmos.base.abci.v1beta1.TxResponse tx_response = 2;
 
 
-    pub fn get_tx_response(&self) -> &super::abci::TxResponse {
-        self.tx_response.as_ref().unwrap_or_else(|| <super::abci::TxResponse as ::protobuf::Message>::default_instance())
+    pub fn get_tx_response(&self) -> &TxResponse {
+        self.tx_response.as_ref().unwrap_or_else(|| <TxResponse as ::protobuf::Message>::default_instance())
     }
     pub fn clear_tx_response(&mut self) {
         self.tx_response.clear();
@@ -1580,13 +1581,13 @@ impl GetTxResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_tx_response(&mut self, v: super::abci::TxResponse) {
+    pub fn set_tx_response(&mut self, v: TxResponse) {
         self.tx_response = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_tx_response(&mut self) -> &mut super::abci::TxResponse {
+    pub fn mut_tx_response(&mut self) -> &mut TxResponse {
         if self.tx_response.is_none() {
             self.tx_response.set_default();
         }
@@ -1594,8 +1595,8 @@ impl GetTxResponse {
     }
 
     // Take field
-    pub fn take_tx_response(&mut self) -> super::abci::TxResponse {
-        self.tx_response.take().unwrap_or_else(|| super::abci::TxResponse::new())
+    pub fn take_tx_response(&mut self) -> TxResponse {
+        self.tx_response.take().unwrap_or_else(|| TxResponse::new())
     }
 }
 
@@ -1703,7 +1704,7 @@ impl ::protobuf::Message for GetTxResponse {
                 |m: &GetTxResponse| { &m.tx },
                 |m: &mut GetTxResponse| { &mut m.tx },
             ));
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::abci::TxResponse>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<TxResponse>>(
                 "tx_response",
                 |m: &GetTxResponse| { &m.tx_response },
                 |m: &mut GetTxResponse| { &mut m.tx_response },

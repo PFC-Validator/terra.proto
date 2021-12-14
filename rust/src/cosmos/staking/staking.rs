@@ -19,6 +19,8 @@
 #![allow(unused_results)]
 //! Generated file from `cosmos/staking/v1beta1/staking.proto`
 
+use crate::tendermint::p2p::Header;
+
 /// Generated files are compatible only with the same version
 /// of protobuf runtime.
 // const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_2_25_2;
@@ -26,7 +28,7 @@
 #[derive(PartialEq,Clone,Default)]
 pub struct HistoricalInfo {
     // message fields
-    pub header: ::protobuf::SingularPtrField<super::types::Header>,
+    pub header: ::protobuf::SingularPtrField<Header>,
     pub valset: ::protobuf::RepeatedField<Validator>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -47,8 +49,8 @@ impl HistoricalInfo {
     // .tendermint.types.Header header = 1;
 
 
-    pub fn get_header(&self) -> &super::types::Header {
-        self.header.as_ref().unwrap_or_else(|| <super::types::Header as ::protobuf::Message>::default_instance())
+    pub fn get_header(&self) -> &Header {
+        self.header.as_ref().unwrap_or_else(|| <Header as ::protobuf::Message>::default_instance())
     }
     pub fn clear_header(&mut self) {
         self.header.clear();
@@ -59,13 +61,13 @@ impl HistoricalInfo {
     }
 
     // Param is passed by value, moved
-    pub fn set_header(&mut self, v: super::types::Header) {
+    pub fn set_header(&mut self, v: Header) {
         self.header = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_header(&mut self) -> &mut super::types::Header {
+    pub fn mut_header(&mut self) -> &mut Header {
         if self.header.is_none() {
             self.header.set_default();
         }
@@ -73,8 +75,8 @@ impl HistoricalInfo {
     }
 
     // Take field
-    pub fn take_header(&mut self) -> super::types::Header {
-        self.header.take().unwrap_or_else(|| super::types::Header::new())
+    pub fn take_header(&mut self) -> Header {
+        self.header.take().unwrap_or_else(|| Header::new())
     }
 
     // repeated .cosmos.staking.v1beta1.Validator valset = 2;
@@ -202,7 +204,7 @@ impl ::protobuf::Message for HistoricalInfo {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::types::Header>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Header>>(
                 "header",
                 |m: &HistoricalInfo| { &m.header },
                 |m: &mut HistoricalInfo| { &mut m.header },

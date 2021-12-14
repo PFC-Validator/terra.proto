@@ -26,7 +26,7 @@
 #[derive(PartialEq,Clone,Default)]
 pub struct BaseVestingAccount {
     // message fields
-    pub base_account: ::protobuf::SingularPtrField<super::auth::BaseAccount>,
+    pub base_account: ::protobuf::SingularPtrField<super::auth::auth::BaseAccount>,
     pub original_vesting: ::protobuf::RepeatedField<super::coin::Coin>,
     pub delegated_free: ::protobuf::RepeatedField<super::coin::Coin>,
     pub delegated_vesting: ::protobuf::RepeatedField<super::coin::Coin>,
@@ -50,8 +50,8 @@ impl BaseVestingAccount {
     // .cosmos.auth.v1beta1.BaseAccount base_account = 1;
 
 
-    pub fn get_base_account(&self) -> &super::auth::BaseAccount {
-        self.base_account.as_ref().unwrap_or_else(|| <super::auth::BaseAccount as ::protobuf::Message>::default_instance())
+    pub fn get_base_account(&self) -> &super::auth::auth::BaseAccount {
+        self.base_account.as_ref().unwrap_or_else(|| <super::auth::auth::BaseAccount as ::protobuf::Message>::default_instance())
     }
     pub fn clear_base_account(&mut self) {
         self.base_account.clear();
@@ -62,13 +62,13 @@ impl BaseVestingAccount {
     }
 
     // Param is passed by value, moved
-    pub fn set_base_account(&mut self, v: super::auth::BaseAccount) {
+    pub fn set_base_account(&mut self, v: super::auth::auth::BaseAccount) {
         self.base_account = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_base_account(&mut self) -> &mut super::auth::BaseAccount {
+    pub fn mut_base_account(&mut self) -> &mut super::auth::auth::BaseAccount {
         if self.base_account.is_none() {
             self.base_account.set_default();
         }
@@ -76,8 +76,8 @@ impl BaseVestingAccount {
     }
 
     // Take field
-    pub fn take_base_account(&mut self) -> super::auth::BaseAccount {
-        self.base_account.take().unwrap_or_else(|| super::auth::BaseAccount::new())
+    pub fn take_base_account(&mut self) -> super::auth::auth::BaseAccount {
+        self.base_account.take().unwrap_or_else(|| super::auth::auth::BaseAccount::new())
     }
 
     // repeated .cosmos.base.v1beta1.Coin original_vesting = 2;
@@ -317,7 +317,7 @@ impl ::protobuf::Message for BaseVestingAccount {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::auth::BaseAccount>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::auth::auth::BaseAccount>>(
                 "base_account",
                 |m: &BaseVestingAccount| { &m.base_account },
                 |m: &mut BaseVestingAccount| { &mut m.base_account },

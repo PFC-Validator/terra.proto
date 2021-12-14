@@ -19,6 +19,9 @@
 #![allow(unused_results)]
 //! Generated file from `cosmos/base/tendermint/v1beta1/query.proto`
 
+use crate::tendermint::p2p::types::DefaultNodeInfo;
+use crate::tendermint::types::types::BlockID;
+
 /// Generated files are compatible only with the same version
 /// of protobuf runtime.
 // const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_2_25_2;
@@ -1363,7 +1366,7 @@ impl ::protobuf::reflect::ProtobufValue for GetBlockByHeightRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct GetBlockByHeightResponse {
     // message fields
-    pub block_id: ::protobuf::SingularPtrField<super::types::BlockID>,
+    pub block_id: ::protobuf::SingularPtrField<BlockID>,
     pub block: ::protobuf::SingularPtrField<super::block::Block>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -1384,8 +1387,8 @@ impl GetBlockByHeightResponse {
     // .tendermint.types.BlockID block_id = 1;
 
 
-    pub fn get_block_id(&self) -> &super::types::BlockID {
-        self.block_id.as_ref().unwrap_or_else(|| <super::types::BlockID as ::protobuf::Message>::default_instance())
+    pub fn get_block_id(&self) -> &BlockID {
+        self.block_id.as_ref().unwrap_or_else(|| <BlockID as ::protobuf::Message>::default_instance())
     }
     pub fn clear_block_id(&mut self) {
         self.block_id.clear();
@@ -1396,13 +1399,13 @@ impl GetBlockByHeightResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_block_id(&mut self, v: super::types::BlockID) {
+    pub fn set_block_id(&mut self, v: BlockID) {
         self.block_id = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_block_id(&mut self) -> &mut super::types::BlockID {
+    pub fn mut_block_id(&mut self) -> &mut BlockID {
         if self.block_id.is_none() {
             self.block_id.set_default();
         }
@@ -1410,8 +1413,8 @@ impl GetBlockByHeightResponse {
     }
 
     // Take field
-    pub fn take_block_id(&mut self) -> super::types::BlockID {
-        self.block_id.take().unwrap_or_else(|| super::types::BlockID::new())
+    pub fn take_block_id(&mut self) -> BlockID {
+        self.block_id.take().unwrap_or_else(|| BlockID::new())
     }
 
     // .tendermint.types.Block block = 2;
@@ -1547,7 +1550,7 @@ impl ::protobuf::Message for GetBlockByHeightResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::types::BlockID>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<BlockID>>(
                 "block_id",
                 |m: &GetBlockByHeightResponse| { &m.block_id },
                 |m: &mut GetBlockByHeightResponse| { &mut m.block_id },
@@ -1710,7 +1713,7 @@ impl ::protobuf::reflect::ProtobufValue for GetLatestBlockRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct GetLatestBlockResponse {
     // message fields
-    pub block_id: ::protobuf::SingularPtrField<super::types::BlockID>,
+    pub block_id: ::protobuf::SingularPtrField<BlockID>,
     pub block: ::protobuf::SingularPtrField<super::block::Block>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -1731,8 +1734,8 @@ impl GetLatestBlockResponse {
     // .tendermint.types.BlockID block_id = 1;
 
 
-    pub fn get_block_id(&self) -> &super::types::BlockID {
-        self.block_id.as_ref().unwrap_or_else(|| <super::types::BlockID as ::protobuf::Message>::default_instance())
+    pub fn get_block_id(&self) -> &BlockID {
+        self.block_id.as_ref().unwrap_or_else(|| <BlockID as ::protobuf::Message>::default_instance())
     }
     pub fn clear_block_id(&mut self) {
         self.block_id.clear();
@@ -1743,13 +1746,13 @@ impl GetLatestBlockResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_block_id(&mut self, v: super::types::BlockID) {
+    pub fn set_block_id(&mut self, v:BlockID) {
         self.block_id = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_block_id(&mut self) -> &mut super::types::BlockID {
+    pub fn mut_block_id(&mut self) -> &mut BlockID {
         if self.block_id.is_none() {
             self.block_id.set_default();
         }
@@ -1757,8 +1760,8 @@ impl GetLatestBlockResponse {
     }
 
     // Take field
-    pub fn take_block_id(&mut self) -> super::types::BlockID {
-        self.block_id.take().unwrap_or_else(|| super::types::BlockID::new())
+    pub fn take_block_id(&mut self) -> BlockID {
+        self.block_id.take().unwrap_or_else(|| BlockID::new())
     }
 
     // .tendermint.types.Block block = 2;
@@ -1894,7 +1897,7 @@ impl ::protobuf::Message for GetLatestBlockResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::types::BlockID>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<BlockID>>(
                 "block_id",
                 |m: &GetLatestBlockResponse| { &m.block_id },
                 |m: &mut GetLatestBlockResponse| { &mut m.block_id },
@@ -2325,7 +2328,7 @@ impl ::protobuf::reflect::ProtobufValue for GetNodeInfoRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct GetNodeInfoResponse {
     // message fields
-    pub default_node_info: ::protobuf::SingularPtrField<super::types::DefaultNodeInfo>,
+    pub default_node_info: ::protobuf::SingularPtrField<DefaultNodeInfo>,
     pub application_version: ::protobuf::SingularPtrField<VersionInfo>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -2346,8 +2349,8 @@ impl GetNodeInfoResponse {
     // .tendermint.p2p.DefaultNodeInfo default_node_info = 1;
 
 
-    pub fn get_default_node_info(&self) -> &super::types::DefaultNodeInfo {
-        self.default_node_info.as_ref().unwrap_or_else(|| <super::types::DefaultNodeInfo as ::protobuf::Message>::default_instance())
+    pub fn get_default_node_info(&self) -> &DefaultNodeInfo {
+        self.default_node_info.as_ref().unwrap_or_else(|| <DefaultNodeInfo as ::protobuf::Message>::default_instance())
     }
     pub fn clear_default_node_info(&mut self) {
         self.default_node_info.clear();
@@ -2358,13 +2361,13 @@ impl GetNodeInfoResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_default_node_info(&mut self, v: super::types::DefaultNodeInfo) {
+    pub fn set_default_node_info(&mut self, v: DefaultNodeInfo) {
         self.default_node_info = ::protobuf::SingularPtrField::some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_default_node_info(&mut self) -> &mut super::types::DefaultNodeInfo {
+    pub fn mut_default_node_info(&mut self) -> &mut DefaultNodeInfo {
         if self.default_node_info.is_none() {
             self.default_node_info.set_default();
         }
@@ -2372,8 +2375,8 @@ impl GetNodeInfoResponse {
     }
 
     // Take field
-    pub fn take_default_node_info(&mut self) -> super::types::DefaultNodeInfo {
-        self.default_node_info.take().unwrap_or_else(|| super::types::DefaultNodeInfo::new())
+    pub fn take_default_node_info(&mut self) -> DefaultNodeInfo {
+        self.default_node_info.take().unwrap_or_else(|| DefaultNodeInfo::new())
     }
 
     // .cosmos.base.tendermint.v1beta1.VersionInfo application_version = 2;
@@ -2509,7 +2512,7 @@ impl ::protobuf::Message for GetNodeInfoResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::types::DefaultNodeInfo>>(
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<DefaultNodeInfo>>(
                 "default_node_info",
                 |m: &GetNodeInfoResponse| { &m.default_node_info },
                 |m: &mut GetNodeInfoResponse| { &mut m.default_node_info },
