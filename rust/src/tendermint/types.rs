@@ -8,7 +8,7 @@ pub mod params;
 pub mod types;
 pub use types as types_types;
 pub mod validator;
+
 pub use super::crypto::proof;
 
 pub use super::crypto::keys;
-pub use super::version::types::Consensus;

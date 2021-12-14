@@ -3,7 +3,8 @@
 pub mod service;
 pub mod signing;
 pub mod tx;
-pub use crate::cosmos::base::abci;
-pub use crate::cosmos::base::coin;
 pub use crate::cosmos::base::pagination;
 pub use crate::cosmos::crypto::multisig;
+pub use crate::tendermint::abci;
+
+pub use crate::cosmos::base::coin;
