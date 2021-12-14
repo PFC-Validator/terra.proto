@@ -7,13 +7,16 @@ use std::io::Write;
 use std::path::Path;
 
 /// Version # of package sent out on requests to help with debugging
+#[allow(dead_code)]
 const VERSION: Option<&'static str> = option_env!("CARGO_PKG_VERSION");
 /// name of package
+#[allow(dead_code)]
 const NAME: Option<&'static str> = option_env!("CARGO_PKG_NAME");
-
+#[allow(dead_code)]
 fn visit_dir(dir: &Path) -> io::Result<Vec<String>> {
     visit_dirs(dir, dir)
 }
+#[allow(dead_code)]
 fn visit_dirs(dir: &Path, initial: &Path) -> io::Result<Vec<String>> {
     let mut files: Vec<String> = Default::default();
     if dir.is_dir() {
@@ -36,6 +39,7 @@ fn visit_dirs(dir: &Path, initial: &Path) -> io::Result<Vec<String>> {
     }
     Ok(files)
 }
+#[allow(dead_code)]
 fn gen_module_file_for_dir(module: &str, dir: &str, files: Vec<String>) -> io::Result<()> {
     let lib_name = format!("{}.rs", dir);
     let mut out_file = File::create(&lib_name)?;
@@ -73,51 +77,50 @@ fn gen_module_file_for_dir(module: &str, dir: &str, files: Vec<String>) -> io::R
     Ok(())
 }
 fn main() -> Result<(), io::Error> {
+    //return Ok(());
+    // this stuff needs tweaking to get it to compile.
     /*
-    return Ok(());
-     /// this stuff needs tweaking to get it to compile.
+    fs::remove_dir_all("src/tendermint").ok();
+    fs::create_dir("src/tendermint")?;
 
-       fs::remove_dir_all("src/tendermint").ok();
-       fs::create_dir("src/tendermint")?;
+    let tendermint_modules = vec!["abci", "p2p", "crypto", "types", "version"];
 
-       let tendermint_modules = vec!["abci", "p2p", "crypto", "types", "version"];
-
-       let mut out_module = File::create("src/tendermint.rs")?;
-       out_module.write(b"// auto-generated\n")?;
-       out_module.write(
-           format!(
-               "// Version {}/{}\n",
-               NAME.unwrap_or("PFC"),
-               VERSION.unwrap_or("dev")
-           )
-           .as_bytes(),
-       )?;
-       for module in tendermint_modules {
-           let output_dir = format!("src/tendermint/{}", module);
-           fs::create_dir(&output_dir)?;
-           match visit_dir(Path::new(&format!(
-               "tendermint/proto/tendermint/{}",
-               module
-           ))) {
-               Ok(files) => {
-                   eprintln!("Module {} Files:\n{}", module, files.join("\t\n"));
-                   protoc_rust::Codegen::new()
-                       .out_dir(&output_dir)
-                       .inputs(&files)
-                       .include("protos")
-                       .include("tendermint/proto")
-                       .include("googleapis")
-                       .include("inc")
-                       .run()
-                       .expect("protoc");
-                   gen_module_file_for_dir(module, &output_dir, files)?;
-                   out_module.write(b"pub mod ")?;
-                   out_module.write(module.as_bytes())?;
-                   out_module.write(b";\n")?;
-               }
-               Err(e) => eprintln!("Err:{}", e),
-           }
-       }
+    let mut out_module = File::create("src/tendermint.rs")?;
+    out_module.write(b"// auto-generated\n")?;
+    out_module.write(
+        format!(
+            "// Version {}/{}\n",
+            NAME.unwrap_or("PFC"),
+            VERSION.unwrap_or("dev")
+        )
+        .as_bytes(),
+    )?;
+    for module in tendermint_modules {
+        let output_dir = format!("src/tendermint/{}", module);
+        fs::create_dir(&output_dir)?;
+        match visit_dir(Path::new(&format!(
+            "tendermint/proto/tendermint/{}",
+            module
+        ))) {
+            Ok(files) => {
+                eprintln!("Module {} Files:\n{}", module, files.join("\t\n"));
+                protoc_rust::Codegen::new()
+                    .out_dir(&output_dir)
+                    .inputs(&files)
+                    .include("protos")
+                    .include("tendermint/proto")
+                    .include("googleapis")
+                    .include("inc")
+                    .run()
+                    .expect("protoc");
+                gen_module_file_for_dir(module, &output_dir, files)?;
+                out_module.write(b"pub mod ")?;
+                out_module.write(module.as_bytes())?;
+                out_module.write(b";\n")?;
+            }
+            Err(e) => eprintln!("Err:{}", e),
+        }
+    }
 
     */
     // return Ok(());
@@ -126,7 +129,17 @@ fn main() -> Result<(), io::Error> {
     fs::create_dir("src/cosmos")?;
 
     //  let cosmos_base_modules = vec!["coin"];
-    let cosmos_tx_modules = vec!["tx", "base", "crypto"];
+    let cosmos_tx_modules = vec![
+        "tx",
+        "base",
+        "crypto",
+        "auth",
+        "authz",
+        "distribution",
+        "staking",
+        "slashing",
+        "vesting",
+    ];
 
     let mut out_module = File::create("src/cosmos.rs")?;
     out_module.write(b"// auto-generated\n")?;
