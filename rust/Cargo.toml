@@ -2,7 +2,10 @@
 name = "terra-rust-proto"
 version = "0.1.1"
 edition = "2018"
-
+license = "Apache-2.0"
+description = "terra-rust-proto is the protobuf layer for Col-5 Terra. It is EARLY stages, and not official"
+readme = "README.md"
+homepage="https://github.com/PFC-Validator/terra.proto"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
